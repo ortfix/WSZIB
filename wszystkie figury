@@ -1,0 +1,36 @@
+package pierwsze;
+
+import java.awt.*;
+public class A extends Frame {
+A()
+{ //konstruktor
+ setSize(400,300);
+ setVisible(true);
+ setTitle("Użycie metod rysowania figur geometrycznych");
+}
+public void paint ( Graphics g ) {
+//przesuniecie układu wspolrzednych
+ Insets b = getInsets();
+g.translate (b.left, b.top);
+g.drawLine( 20, 10, 70, 10 );
+// prostokąt i zaokrąglony prostokąt
+g.fillRect( 50,50 ,100, 70 );
+g.fillRoundRect( 50, 130, 50, 50, 20, 20 );
+int tabX [ ] = { 40, 60, 80 ,40 };
+int tabY [ ] = { 40, 20, 40 ,40 };
+int n = tabX.length;
+//trojkat
+g.fillPolygon( tabX, tabY, n-1 );
+g.translate(100,0);
+g.drawPolyline(tabX, tabY, n);
+g.translate(-100,0);
+// elipsa, kolo, wycinek
+g.drawOval( 200, 50, 50, 50 );
+g.fillOval( 280, 50, 70, 50 );
+g.fillArc( 200, 110, 50, 50, 0, 275 );
+}
+public static void main (String args[])
+{
+ new A();
+}
+}
