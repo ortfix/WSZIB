@@ -1,0 +1,29 @@
+package Bartosz_Wojcik;
+
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.util.Random;
+
+public class ApletKwadraty extends Applet {
+	
+	private Square[] tab;
+	
+	@Override
+	public void init() {
+		setBackground(Color.blue);
+		Dimension d = getSize();
+		final int N = 10;
+		tab = new Square[N];
+		for(int i = 0; i < N; i++)
+			tab[i] = new Square(d);
+	}
+
+	@Override
+	public void paint(Graphics g) {
+		for(Square k : tab)
+			k.rysuj(g);
+	}
+
+}
